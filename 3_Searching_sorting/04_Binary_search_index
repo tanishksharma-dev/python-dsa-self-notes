@@ -1,0 +1,46 @@
+'''
+Hint
+You already HAVE the index
+"mid" variable stores it 
+
+Suppose target NOT found.
+
+Then:
+
+mid
+
+may contain random last checked value.
+
+So:
+
+only print index if found
+otherwise print not found
+'''
+arr = list(map(int, input("Enter array: ").split()))
+
+target = int(input("Enter the target: "))
+
+low = 0
+high = len(arr)-1
+
+found = False
+
+while low <= high:
+
+    mid = (low + high)//2
+
+    if arr[mid] == target:
+        found = True
+        break
+
+    elif target > arr[mid]:
+        low = mid + 1
+
+    else:
+        high = mid - 1
+
+if found:
+    print("Element found at index ",mid)
+
+else:
+    print("Element not found")
